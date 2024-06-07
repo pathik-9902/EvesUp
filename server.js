@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Database connection
-mongoose.connect('mongodb://localhost:27017/EvesUp', {})
+mongoose.connect('mongodb+srv://pathikpatel992002:4CEU5mNgbpAsPSoV@mycluster.2bd3mfe.mongodb.net/', {})
   .then(() => console.log("DB connected"))
   .catch((err) => console.error("Error connecting to database:", err));
 
