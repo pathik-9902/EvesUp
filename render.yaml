@@ -1,6 +1,0 @@
-services:
-  - name: my-app
-    buildCommand: npm run build
-    startCommand: npm start
-    envVars:
-      NODE_ENV: production

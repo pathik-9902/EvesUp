@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Database connection
-mongoose.connect('mongodb+srv://pathikpatel992002:4CEU5mNgbpAsPSoV@mycluster.2bd3mfe.mongodb.net/', {})
+mongoose.connect(process.env.MONGO_URI, {})
   .then(() => console.log("DB connected"))
   .catch((err) => console.error("Error connecting to database:", err));
 
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const SECRET_KEY = process.env.SECRET_KEY || "your_secret_key";
+const SECRET_KEY = process.env.SECRET_KEY || "mysecretkey";
 
 // Function to generate a new userId
 const generateUserId = async () => {
