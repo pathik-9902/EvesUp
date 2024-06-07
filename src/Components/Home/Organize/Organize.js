@@ -1,7 +1,6 @@
 import './Organize.css';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import API_BASE_URL from '../config';
 
 
 const Organize = ({ userState }) => {
@@ -46,7 +45,7 @@ const Organize = ({ userState }) => {
       form.append('userId', userState.userId);
       form.append('fee', formData.fee);
   
-      const response = await fetch(`${API_BASE_URL}/organizer`, {
+      const response = await fetch(`http://localhost:8000/organizer`, {
         method: "POST",
         body: form
       });

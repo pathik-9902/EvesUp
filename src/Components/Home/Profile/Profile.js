@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Profile.css';
 import EventCard from '../Events/EventCard';
 import EditEventDialog from './EditEventDialog';
-import API_BASE_URL from '../config';
 
 const Profile = ({ setUserState, userState, event, onEdit }) => {
   const [editingProfile, setEditingProfile] = useState(false);
@@ -14,7 +13,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const handleDelete = async (event) => {
     try {
-      await fetch(`${API_BASE_URL}/api/events/${event._id}`, {
+      await fetch(`http://localhost:8000/api/events/${event._id}`, {
         method: 'DELETE',
       });
       // Assuming your server responds with success
@@ -41,7 +40,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const fetchUserEvents = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/events/user?userId=${userState.userId}`);
+      const response = await fetch(`http://localhost:8000/api/events/user?userId=${userState.userId}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch events: ${response.status} ${response.statusText}`);
       }
@@ -66,7 +65,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const deactivate = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/deactivate`, {
+      const response = await fetch(`http://localhost:8000/deactivate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +97,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const handleProfileSave = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/updateProfile`, {
+      const response = await fetch(`http://localhost:8000/updateProfile`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +137,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/changePassword`, {
+      const response = await fetch(`http://localhost:8000/changePassword`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -176,7 +175,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const handleSaveEvent = async (formData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/events/${formData._id}`, {
+      const response = await fetch(`http://localhost:8000/api/events/${formData._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

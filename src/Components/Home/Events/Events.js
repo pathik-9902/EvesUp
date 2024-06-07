@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Events.css';
 import EventCard from './EventCard';
-import API_BASE_URL from '../config';
 
 
 const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/events`)
+    fetch(`http://localhost:8000/api/events`)
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((error) => console.error('Error fetching events:', error));
