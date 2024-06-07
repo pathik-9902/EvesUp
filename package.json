@@ -14,12 +14,12 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-  "start": "concurrently \"node server.js\" \"react-scripts start\"",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
-  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-},
+    "start": "concurrently \"node server.js\" \"react-scripts start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "mongoose": "^8.4.1"
