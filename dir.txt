@@ -1,0 +1,24 @@
+MY-APP
+├── node_modules
+├── public
+├── src
+│   ├── Components
+│   │   ├── Authentication
+│   │   └── Home
+│   │       ├── Events
+│   │       ├── Organize
+│   │       └── Profile
+│   ├── Images
+│   ├── DialogueBox.js
+│   ├── Home.js
+│   ├── Navbar.css
+│   ├── Navbar.js
+│   ├── App.js
+│   ├── index.js
+│   └── reportWebVitals.js
+├── .gitignore
+├── .env
+├── package-lock.json
+├── package.json
+├── README.md
+└── server.js

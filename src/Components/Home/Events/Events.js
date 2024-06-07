@@ -7,7 +7,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/events`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/events`)
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((error) => console.error('Error fetching events:', error));

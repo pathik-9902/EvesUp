@@ -45,7 +45,7 @@ const Organize = ({ userState }) => {
       form.append('userId', userState.userId);
       form.append('fee', formData.fee);
   
-      const response = await fetch(`http://localhost:8000/organizer`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/organizer`, {
         method: "POST",
         body: form
       });

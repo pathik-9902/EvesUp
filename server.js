@@ -1,10 +1,11 @@
+require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const multer = require("multer");
-require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -12,10 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Database connection
-mongoose.connect('mongodb://localhost:27017/testdb', {})
+mongoose.connect(process.env.MONGODB_URI, {})
   .then(() => console.log("DB connected"))
   .catch((err) => console.error("Error connecting to database:", err));
-
 
 // User schema and model
 const userSchema = new mongoose.Schema({
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const SECRET_KEY = process.env.SECRET_KEY || "mysecretkey";
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Function to generate a new userId
 const generateUserId = async () => {
@@ -67,7 +67,6 @@ app.post("/login", async (req, res) => {
     res.status(500).send({ message: "Server error" });
   }
 });
-
 
 // Signup endpoint
 app.post("/signup", async (req, res) => {
@@ -185,6 +184,11 @@ app.post("/verifyToken", async (req, res) => {
 
 
 
+
+
+
+
+
 // Event schema and model
 const eventSchema = new mongoose.Schema({
   title: String,
@@ -289,9 +293,6 @@ app.put('/api/events/:eventId', upload.single('imgbuf'), async (req, res) => {
   }
 });
 
-
-
-
 const deletedEventSchema = new mongoose.Schema({
   title: String,
   date: Date,
@@ -339,7 +340,7 @@ app.delete('/api/events/:eventId', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server starting at ${PORT}`);
+const B_PORT = process.env.B_PORT;
+app.listen(B_PORT, () => {
+  console.log(`Server starting at ${B_PORT}`);
 });

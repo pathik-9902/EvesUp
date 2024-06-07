@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.post(`http://localhost:8000/verifyToken`, { token })
+      axios.post(`${process.env.REACT_APP_API_URL}/verifyToken`, { token })
         .then((res) => {
           setUserState(res.data.user);
           setLoading(false);

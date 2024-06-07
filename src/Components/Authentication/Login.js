@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import DialogueBox from '../Home/DialogueBox';
 
+
 const Login = ({ setUserState }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -63,7 +64,7 @@ const Login = ({ setUserState }) => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      axios.post("http://localhost:8000/login", user).then((res) => {
+      axios.post(`${process.env.REACT_APP_API_URL}/login`, user).then((res) => {
         alert(res.data.message);
         setUserState(res.data.user);
         localStorage.setItem("token", res.data.token); // Store token in localStorage
