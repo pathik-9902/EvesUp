@@ -66,7 +66,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const deactivate = async () => {
     try {
-      const response = await fetch('${API_BASE_URL}/deactivate', {
+      const response = await fetch(`${API_BASE_URL}/deactivate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
 
   const handleProfileSave = async () => {
     try {
-      const response = await fetch('${API_BASE_URL}/updateProfile', {
+      const response = await fetch(`${API_BASE_URL}/updateProfile`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ const Profile = ({ setUserState, userState, event, onEdit }) => {
     }
 
     try {
-      const response = await fetch('${API_BASE_URL}/changePassword', {
+      const response = await fetch(`${API_BASE_URL}/changePassword`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
