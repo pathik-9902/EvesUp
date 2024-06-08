@@ -52,7 +52,7 @@ const Navbar = ({ userState }) => {
         <button type="button">
           <img src={search} alt="search" />
         </button>
-        <input type="text" placeholder="Search..." />
+        <input id='search' type="text" placeholder="Search..." />
       </div>
     </nav>
   );
